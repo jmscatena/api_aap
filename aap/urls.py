@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from academia import views
+from aap import views as aap
 
 urlpatterns = [
+    path('', aap.init),
     path('admin/', admin.site.urls),
     path('clientes/add', views.novo_usuario, name="cliente")   
 ]
