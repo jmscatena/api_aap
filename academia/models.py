@@ -8,7 +8,7 @@ class Usuarios(models.Model):
   # campo user tem os campos nome, sobrenome, email, username, pass
   user = models.ForeignKey(User, on_delete = models.CASCADE)
   convmedico = models.CharField(max_length=15)
-  urgtel = models.CharField(max_length=15, blank=False)
+  urgtel = models.CharField(max_length=15, blank=False,default='')
   celular = models.CharField(max_length=15, blank=False)
   endereco = models.CharField(max_length=40, blank=False)
   numero = models.IntegerField(blank=False)

@@ -21,5 +21,9 @@ from aap import views as aap
 urlpatterns = [
     path('', aap.init),
     path('admin/', admin.site.urls),
-    path('clientes/add', views.novo_usuario, name="cliente")   
+    path('usuarios/add', views.novo_usuario, name="cliente"),
+    path('usuarios/', views.lista_usuarios, name="usuarios"),
+    path('alunos/', views.lista_alunos, name="alunos"),
+    path('professores/', views.lista_alunos, name="professores"),
+    path('gestores/', views.lista_alunos, name="gestores"),
 ]

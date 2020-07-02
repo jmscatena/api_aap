@@ -11,9 +11,9 @@ class UsuariosForm(UserCreationForm):
   bairro = forms.CharField(label='Bairro',max_length=20, required=True)
   cidade = forms.CharField(label='Cidade',max_length=25, required=True)
   estado = forms.CharField(label='Estado',max_length=2, required=True)
-  professor = forms.BooleanField()
-  aluno = forms.BooleanField()
-  gestor = forms.BooleanField()
+  professor = forms.BooleanField(required=False)
+  aluno = forms.BooleanField(required=False)
+  gestor = forms.BooleanField(required=False)
 
   class Meta:
     model = User
