@@ -2,18 +2,17 @@
 <html>
 <head>
 	<title>GymManager - Início</title>
-	
-	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="../CSS/bootstrap.min.css"/>
-	<link rel="stylesheet" href="../JS/bootstrap.min.js"/>
-	<link rel="stylesheet" href="../CSS/style_inicio.css"/>
-	<link rel="stylesheet" href="../JS/tela_inicio.js"/>
+	{% load static %}
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="{% static '/CSS/style_inicio.css' %}"/>
+	<link rel="stylesheet" href="{% static '/JS/tela_inicio.js' %}"/>
 		
 </head>
-
 <body>
 	
 	<div id="div_top">
@@ -25,7 +24,7 @@
 				<li><a id="a_sub_bar" href="#">História</a></li>
 				<li><a id="a_sub_bar" href="#">Sobre</a></li>
 			</div>
-			<li id="li_right"><a id="a_login" href="./login.html"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+			<li id="li_right"><a id="a_login" href="usuarios"><span class="glyphicon glyphicon-log-in"></span> USUÁRIOS</a></li>
 		</ul>
 	</div>
 	
@@ -37,7 +36,7 @@
 	
 	<div id="div_center">
 		<div id="img_inicio">
-			<img src="../img/academia.png" id="img_inicio_texto"></img>
+			<img src="{% static 'img/academia.png' %}" id="img_inicio_texto"></img>
 			</br>
 			<p align="center" id="img_inicio_texto">Academia Beleza e Saude - <b>Fonte: Rafael Silva</b></p>
 		</div>

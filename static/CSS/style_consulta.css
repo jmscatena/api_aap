@@ -110,6 +110,10 @@ li a:hover{
 	text-decoration: none;
 	
 }
+#tabela{
+  width: 100%;
+  text-align: center;
+}
 
 /*	
 #ul_nav_bar{

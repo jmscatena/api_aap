@@ -1,57 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    {% load widget_tweaks %}
-    <title>Listagem de Usuários</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <style>
+<head>
+	<title>GymManager - Início</title>
+	{% load static %}    {% load widget_tweaks %}
 
-    </style>
-  </head>
-  <body>
-    <form role="form" action="{% url 'usuarios' %}" method="POST">
-      <!-- Acesso ao conteudo django/python -->
-      {% csrf_token %}
-      <!-- Se ocorrer algum erro ou sucesso na gravacao dos dados... mensagem é coloca aqui -->
-      {{ alert|safe }}
-      <br>
-      <h2> Listagem / Consulta de Usuários </h2>
-      <br>
-      <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Nome de Usuário</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Gestor</th>
-                <th>Professor</th>
-                <th>Aluno</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for usuario in usuarios %}
-                <tr>
-                  <td>{{usuario.user.username}}</td>
-                  <td>{{usuario.user.first_name}}</td>
-                  <td>{{usuario.user.last_name}}</td>
-                  <td>{{usuario.user.email}}</td>
-                  <td>{{usuario.celular}}</td>
-                  <td>{{usuario.gestor}}</td>
-                  <td>{{usuario.professor}}</td>
-                  <td>{{usuario.aluno}}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-          </table>
-      <br>
-      <button type="submit" class="btn btn-primary"> Pesquisar </button>
-      <button type="reset" class="btn btn-danger"> Limpar </button>
-    </form>
 
-  </body>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="{% static '/CSS/style_consulta.css' %}"/>
+		
+</head>
+<body>
+	
+	<div id="div_top">
+		<ul id="ul_nav_bar">
+			<li><a href="./inicio.html" id="li_logo"></a></li>
+			<div id="div_sub_bar">
+				<li><a id="a_sub_bar2" href="./inicio.html">Início</a></li>
+				<li><a id="a_sub_bar" href="#">Quem somos?</a></li>
+				<li><a id="a_sub_bar" href="#">História</a></li>
+				<li><a id="a_sub_bar" href="#">Sobre</a></li>
+			</div>
+			<li id="li_right"><a id="a_login" href="usuarios"><span class="glyphicon glyphicon-log-in"></span> USUÁRIOS</a></li>
+		</ul>
+	</div>
+	
+	<div id="div_left">
+		
+	</div>
+	
+	<div id="div_center">
+    <div id="tabela">
+      <form method="POST" action="{% url 'addusuario' %}">
+            {% csrf_token %}
+
+            <br>
+            <h2> Listagem / Consulta de Usuários </h2>
+            <br>
+            <table class="table table-striped" style="display:block;margin-left:25%;">
+                  <thead>
+                    <tr>
+                      <th>Nome de Usuário</th>
+                      <th>Nome</th>
+                      <th>Sobrenome</th>
+                      <th>Email</th>
+                      <th>Telefone</th>
+                      <th>Gestor</th>
+                      <th>Professor</th>
+                      <th>Aluno</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for usuario in usuarios %}
+                      <tr>
+                        <td>{{usuario.user.username}}</td>
+                        <td>{{usuario.user.first_name}}</td>
+                        <td>{{usuario.user.last_name}}</td>
+                        <td>{{usuario.user.email}}</td>
+                        <td>{{usuario.celular}}</td>
+                        <td>{{usuario.gestor}}</td>
+                        <td>{{usuario.professor}}</td>
+                        <td>{{usuario.aluno}}</td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+            <br>
+            <button type="submit" class="btn btn-primary"> Novo Usuário </button>
+            <button type="reset" class="btn btn-danger"> Limpar </button>
+      </form>
+    </div>
+	</div>
+
+	<div id="div_footer"></div>
+
+	
+</body>
 </html>

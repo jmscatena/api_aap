@@ -19,9 +19,9 @@ from academia import views
 from aap import views as aap
 
 urlpatterns = [
-    path('', aap.init),
+    path('', aap.init, name="index"),
     path('admin/', admin.site.urls),
-    path('usuarios/add', views.novo_usuario, name="cliente"),
+    path('usuarios/add', views.novo_usuario, name="addusuario"),
     path('usuarios/', views.lista_usuarios, name="usuarios"),
     path('alunos/', views.lista_alunos, name="alunos"),
     path('professores/', views.lista_alunos, name="professores"),
